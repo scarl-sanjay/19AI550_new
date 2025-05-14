@@ -1,4 +1,4 @@
-# Ex.No: 8  Implementation of Path finding using A* algorithm                                                                
+# Ex.No: 8  Implementation of Path finding using A* algorithm                                                             
 ### REGISTER NUMBER : 212223040184
 ### NAME: SANJAY S
 ### AIM: 
