@@ -1,8 +1,8 @@
 # Ex.No: 4  Implementation of Kinematic movement -seek behavior in Unity
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 08-03-2025                                                                           
+### REGISTER NUMBER : 212223040184
 ### AIM: 
-To write a program to simulate the process of seek behavior in Unity without NavigationMeshAgent. 
+To write a program to simulate the process of seek behavior in Unity 
 ### Algorithm:
 1. Create a New Unity Project by Open the  Unity Hub and create a new 3D Project,Name the project (e.g., SeekBehaviorDemo).
 2. Create the Moving Object
@@ -27,39 +27,33 @@ To write a program to simulate the process of seek behavior in Unity without Nav
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;  // Ensure UnityEngine.AI is included
 
-public class Script : MonoBehaviour
+public class SeekBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Transform target;  // The object to seek
-    public float speed = 5f;  // Movement speed
+    public NavMeshAgent agent;  // Corrected declaration
+    public float speed;
+    public Transform target;
+
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (target == null) return;  // Exit if no target is assigned
-
-        // Calculate the desired direction
-        Vector3 direction = (target.position - transform.position).normalized;
-
-        // Move the object towards the target
-        transform.position += direction * speed * Time.deltaTime;
+        if (agent != null && target != null)  
+        {
+            agent.SetDestination(target.position);  // Correct method name
+        }
     }
 }
+
 ```
 ### Output:
+![Screenshot 2025-03-17 111820](https://github.com/user-attachments/assets/2a85f209-c4b3-4d47-8cb8-0dcde0c46985)
 
-
-
-
-
-
-
-
+![Screenshot 2025-03-17 111837](https://github.com/user-attachments/assets/ce1af74d-2c1b-40fb-984d-f8857c510a1e)
 
 ### Result:
 Thus the simple seek behavior was implemented successfully.
